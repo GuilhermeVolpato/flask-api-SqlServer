@@ -2,7 +2,7 @@
 Api python usando Flask e se conectando a um banco de dados SQL SERVER (banco subido pelo azure)
 
 ### Start api
-git clone
+git clone https://github.com/GuilhermeVolpato/flask-api-SqlServer.git
 
 - python -m venv venv
 #
