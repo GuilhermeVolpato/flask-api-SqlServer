@@ -4,22 +4,22 @@ Api python usando Flask e se conectando a um banco de dados SQL SERVER (banco su
 ### Start api
 git clone
 
-1- python -m venv venv
+- python -m venv venv
 #
-2- Windows  -> venv\Scripts\activate
+- Windows  -> venv\Scripts\activate
 #
-2- Mac/linux -> source venv/bin/activate
+- Mac/linux -> source venv/bin/activate
 #
-3- pip install -r requirements.txt
+- pip install -r requirements.txt
 #
-4- criar file .env
+- criar file .env
 
--- server = 'urlServidor'
+ server = 'urlServidor'
 
--- database = 'nomeDoBanco'
+ database = 'nomeDoBanco'
 
--- usernameBanco = 'usuário'
+ usernameBanco = 'usuário'
 
--- password = 'senha'
+ password = 'senha'
 #
-5- flask run
+- flask run
