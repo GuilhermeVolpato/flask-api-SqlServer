@@ -12,4 +12,11 @@ git clone
 
 3- pip install -r requirements.txt
 
-4- flask run
+4- criar file .env
+
+-- server = 'urlServidor'
+-- database = 'nomeDoBanco'
+-- usernameBanco = 'usuário'
+-- password = 'senha'
+
+5- flask run
