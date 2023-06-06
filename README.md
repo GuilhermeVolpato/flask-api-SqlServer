@@ -15,8 +15,11 @@ git clone
 4- criar file .env
 
 -- server = 'urlServidor'
+
 -- database = 'nomeDoBanco'
+
 -- usernameBanco = 'usuário'
+
 -- password = 'senha'
 
 5- flask run
