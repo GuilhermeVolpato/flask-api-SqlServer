@@ -3,11 +3,13 @@ import pyodbc
 from datetime import datetime, timezone
 from dotenv import load_dotenv
 from flask import Flask, request
+from flask_cors import CORS
 
 load_dotenv()
 # Conexão com o banco de dados
 
 app = Flask(__name__)
+CORS(app)
 
 server = os.getenv('server')
 database = os.getenv('database')
