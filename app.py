@@ -148,11 +148,18 @@ def delete_cardapio():
     data = request.json
     id_item_cardapio = data['id_item_cardapio']
     cursor = conn.cursor()
-    cursor.execute(
-        f"DELETE FROM ingredientes WHERE id_item_cardapio = ?", (id_item_cardapio,))
-    cursor.execute(
-        f"DELETE FROM cardapio WHERE id_item_cardapio = ?", (id_item_cardapio))
-    conn.commit()
+
+    try:
+        cursor.execute("DELETE FROM pedido WHERE id_cardapio = ?", (id_item_cardapio,))
+        cursor.execute("DELETE FROM ingredientes WHERE id_item_cardapio = ?", (id_item_cardapio,))
+        cursor.execute("DELETE FROM cardapio WHERE id_item_cardapio = ?", (id_item_cardapio,))
+        conn.commit()
+        return {'message': 'cardapio deletado com sucesso!'}
+    except pyodbc.Error as e:
+        conn.rollback()
+        return {'error': f'Erro ao excluir o cardapio: {str(e)}'}
+    finally:
+        cursor.close()
     return {'message': 'cardapio deletado com sucesso!'}
 
 
@@ -169,7 +176,7 @@ def gerar_relatorio():
     outputParam = None
 
     # Execute the stored procedure with input and output parameters
-    cursor.execute("{CALL GerarRelatorioCardapio1(?, ?)}", (dataInicio, dataFim))
+    cursor.execute("{CALL GerarRelatorioCardapio(?, ?)}", (dataInicio, dataFim))
 
     # Fetch the results if any
     result = cursor.fetchall()
